@@ -1,22 +1,298 @@
-html {
-  font-size: 14px;
+﻿/* Reset e base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #121212;
+    color: #f5f5f5;
+    line-height: 1.6;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    /* Mantém o main expandindo para ocupar o espaço entre header e footer */
+    body > main {
+        flex: 1 0 auto;
+    }
+
+header, footer {
+    background-color: #1f1f1f;
+    padding: 1rem;
+    text-align: center;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+footer {
+    flex-shrink: 0;
+    color: #888;
 }
 
-body {
-  margin-bottom: 60px;
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    background-color: #1f1f1f;
+    padding: 1rem;
+}
+
+.navbar a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar a:hover {
+    color: #66ccff;
+}
+
+/* Container */
+.container {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* Tipografia */
+h1, h2 {
+    color: #66ccff;
+    margin-bottom: 1rem;
+}
+
+/* Seções */
+section {
+    margin-bottom: 2rem;
+}
+
+/* Projetos */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: #1e1e1e;
+    border: 1px dashed #444;
+    padding: 1.2rem;
+    text-align: center;
+    border-radius: 8px;
+    color: #aaa;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.project-card::before {
+    content: "🛠 Em Andamento";
+    display: block;
+    color: #ff9800;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+/* Formulário de Contato */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #2c2c2c;
+    color: white;
+}
+
+.contact-form button {
+    background-color: #66ccff;
+    color: #121212;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #55b0e6;
+}
+
+/* Habilidades */
+.skills-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.skills-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.skills-section li {
+    padding: 0.3rem 0;
+    color: #ccc;
+}
+
+.skills-section h2 {
+    color: #66ccff;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.3rem;
+}
+
+/* Hero */
+.hero {
+    padding: 60px 20px;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.hero-text h1 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #ccc;
+    margin: 0;
+}
+
+.hero-text h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.hero-text h3 {
+    font-size: 1.3rem;
+    color: #c77dff;
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+}
+
+.hero-text p {
+    max-width: 500px;
+    color: #bbb;
+}
+
+.highlight {
+    color: #a855f7;
+    font-weight: bold;
+}
+
+.hero-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-primary {
+    background-color: #a855f7;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.icon-link {
+    border: 1px solid #a855f7;
+    color: #a855f7;
+    padding: 10px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 300px;
+    border-radius: 20px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-text h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .hero-text p, .hero-buttons {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-image img {
+        width: 200px;
+    }
+}
+
+/* Redes Sociais */
+.social-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.cv-button {
+    background-color: #b98af8;
+    color: #121212;
+    padding: 0.7rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    line-height: 1;
+    transition: background 0.3s ease;
+}
+
+.cv-button:hover {
+    background-color: #a173f1;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    background-color: #1f1f1f;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.icon:hover {
+    background-color: #b98af8;
+    color: #121212;
 }
