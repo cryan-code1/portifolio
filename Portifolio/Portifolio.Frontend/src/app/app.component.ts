@@ -1,27 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [ CommonModule ],
-  template: `
-    <h1>Previsão do Tempo</h1>
-    <ul>
-      <li *ngFor="let item of forecasts">
-        {{ item.date }} - {{ item.summary }} - {{ item.temperatureC }}°C
-      </li>
-    </ul>
-  `,
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
-  forecasts: any[] = [];
-
-  constructor(private http: HttpClient) {}
-
-  ngOnInit(): void {
-    this.http.get<any[]>('https://localhost:7037/weatherforecast')
-      .subscribe(data => this.forecasts = data);
-  }
+export class AppComponent {
+  title = 'Portifolio.Frontend';
 }
